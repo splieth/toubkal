@@ -2,9 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
-	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -15,10 +13,6 @@ const (
 	CREATE_ENDPOINT = "/api/atlas/v1.0/groups/some-group-id/clusters"
 )
 
-func loadFixture(name string) ([]byte, error) {
-	return ioutil.ReadFile(filepath.Join("fixtures", name))
-}
-
 func createClient() Client {
 	return Client{
 		BaseURL:  "https://cloud.mongodb.com",
@@ -27,7 +21,7 @@ func createClient() Client {
 	}
 }
 
-func TestCreateClusterCreatesNewCluster(t *testing.T) {
+func TestClient_CreateClusterCreatesNewCluster(t *testing.T) {
 	var clusterToBuild ClusterInput
 	defer gock.Off()
 
@@ -50,7 +44,7 @@ func TestCreateClusterCreatesNewCluster(t *testing.T) {
 	assert.Equal(t, response.NumShards, clusterToBuild.NumShards)
 }
 
-func TestCreateClusterFailsWhenClusterExists(t *testing.T) {
+func TestClient_CreateClusterFailsWhenClusterExists(t *testing.T) {
 	defer gock.Off()
 
 	client := createClient()

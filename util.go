@@ -1,8 +1,9 @@
 package main
 
 import (
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
+	"path/filepath"
 
 	auth "github.com/splieth/go-http-digest-auth-client"
 )
@@ -30,4 +31,8 @@ func (c *Client) request(method, url, body string, expectedStatusCode int) ([]by
 	}
 
 	return result, nil
+}
+
+func loadFixture(name string) ([]byte, error) {
+	return ioutil.ReadFile(filepath.Join("fixtures", name))
 }
