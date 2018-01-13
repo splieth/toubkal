@@ -1,0 +1,5 @@
+{
+  "atlasCidrBlock" : "192.168.248.0/21",
+  "providerName" : "AWS",
+  "regionName" : "US_EAST_1"
+}

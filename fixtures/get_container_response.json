@@ -1,0 +1,8 @@
+{
+  "atlasCidrBlock" : "192.168.248.0/21",
+  "id" : "1112222b3bf99403840e8934",
+  "providerName" : "AWS",
+  "provisioned" : true,
+  "regionName" : "US_EAST_1",
+  "vpcId" : "awesome-vpc"
+}

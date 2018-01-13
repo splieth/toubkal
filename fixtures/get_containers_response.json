@@ -1,0 +1,19 @@
+{
+  "links": [
+    {
+      "href": "https://cloud.mongodb.com/api/atlas/v1.0/groups/some-group/containers",
+      "rel": "self"
+    }
+  ],
+  "results": [
+    {
+      "atlasCidrBlock": "192.168.248.0/21",
+      "id": "1112222b3bf99403840e8934",
+      "providerName": "AWS",
+      "provisioned": true,
+      "regionName": "US_EAST_1",
+      "vpcId": "vpc-zz0zzzzz"
+    }
+  ],
+  "totalCount": 1
+}
