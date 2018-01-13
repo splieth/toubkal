@@ -1,0 +1,37 @@
+{
+  "links": [
+    {
+      "href": "https://cloud.mongodb.com/api/atlas/v1.0/groups",
+      "rel": "self"
+    }
+  ],
+  "results": [
+    {
+      "clusterCount": 2,
+      "created": "2016-07-14T14:19:33Z",
+      "id": "5a0a1e7e0f2912c554080ae6",
+      "links": [
+        {
+          "href": "https://cloud.mongodb.com/api/atlas/v1.0/groups/5a0a1e7e0f2912c554080ae6",
+          "rel": "self"
+        }
+      ],
+      "name": "ProjectBar",
+      "orgId": "5a0a1e7e0f2912c554080adc"
+    },
+    {
+      "clusterCount": 0,
+      "created": "2017-10-16T15:24:01Z",
+      "id": "5a0a1e7e0f2912c554080ae7",
+      "links": [
+        {
+          "href": "https://cloud.mongodb.com/api/atlas/v1.0/groups/5a0a1e7e0f2912c554080ae7",
+          "rel": "self"
+        }
+      ],
+      "name": "Project Foo",
+      "orgId": "5a0a1e7e0f2912c554080adc"
+    }
+  ],
+  "totalCount": 2
+}
