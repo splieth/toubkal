@@ -6,18 +6,18 @@ import (
 )
 
 type ContainerOutput struct {
-	Id             string `json"id,omitempty"`
-	ProviderName   string `json"providerName,omitempty"`
-	AtlasCidrBlock string `json"atlasCidrBlock,omitempty"`
-	RegionName     string `json"regionName,omitempty"`
-	VpcId          string `json"vpcId,omitempty"`
-	IsProvisioned  bool   `json"isProvisioned,omitempty"`
+	Id             string `json:"id,omitempty"`
+	ProviderName   string `json:"providerName,omitempty"`
+	AtlasCidrBlock string `json:"atlasCidrBlock,omitempty"`
+	RegionName     string `json:"regionName,omitempty"`
+	VpcId          string `json:"vpcId,omitempty"`
+	IsProvisioned  bool   `json:"isProvisioned,omitempty"`
 }
 
 type ContainerInput struct {
-	AtlasCidrBlock string `json"atlasCidrBlock,omitempty"`
-	ProviderName   string `json"providerName,omitempty"`
-	RegionName     string `json"regionName,omitempty"`
+	AtlasCidrBlock string `json:"atlasCidrBlock,omitempty"`
+	ProviderName   string `json:"providerName,omitempty"`
+	RegionName     string `json:"regionName,omitempty"`
 }
 
 func (c *Client) GetContainers() ([]ContainerOutput, error) {
@@ -77,4 +77,25 @@ func (c *Client) CreateContainer(container *ContainerInput) (*ContainerOutput, e
 	}
 
 	return &cnt, nil
+}
+
+func (c *Client) UpdateContainer(containerId string, container *ContainerInput) (*ContainerOutput, error) {
+	var cnt ContainerOutput
+
+	data, err := json.Marshal(container)
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := c.request("PATCH", c.BaseURL+"/api/atlas/v1.0/groups/"+c.GroupId+"/containers/"+containerId, string(data[:]), http.StatusOK)
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(response, &cnt)
+	if err != nil {
+		return nil, err
+	}
+
+	return &cnt, err
 }
